@@ -18,8 +18,8 @@ RUN wget https://wordpress.org/wordpress-4.9.5.zip -O /var/www/html/wordpress-4.
 && rm /var/www/html/wordpress-4.9.5.zip
 
 #Ajout des persmisions nécessaire pour que wordpress fonctionne 
-RUN chown -R www-data:www-data /var/www/html/wordpress/ 
-#&& chmod -R 755 /var/www/html/wordpress/
+RUN chown -R www-data:www-data /var/www/html/ \
+&& chmod +x /var/www/html/script/modifenv.sh
 
 #Ajout du fichier de conf wordpress à Apache
 ADD wordpress.conf /etc/apache2/sites-available/
