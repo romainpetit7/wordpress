@@ -18,8 +18,8 @@ RUN wget https://wordpress.org/wordpress-4.9.5.zip -O /var/www/html/wordpress-4.
 && rm /var/www/html/wordpress-4.9.5.zip
 
 #Ajout des persmisions nécessaire pour que wordpress fonctionne 
-RUN chown -R www-data:www-data /var/www/html/ \
-&& chmod +x /var/www/html/script/modifenv.sh
+RUN chown -R www-data:www-data /var/www/html/ 
+
 
 #Ajout du fichier de conf wordpress à Apache
 ADD wordpress.conf /etc/apache2/sites-available/
@@ -32,7 +32,7 @@ ADD wp-config.php /var/www/html/wordpress/
 ADD modifenv.sh /var/www/html/script/
 
 #Ajout droit d'execution sur script Shell modifenv.sh
-#RUN chmod +x /var/www/html/script/modifenv.sh
+RUN chmod +x /var/www/html/script/modifenv.sh
 
 #Application du fichier de conf à Apache et reboot du service pour appliquer la modif
 RUN a2ensite wordpress.conf && a2enmod rewrite && service apache2 restart
