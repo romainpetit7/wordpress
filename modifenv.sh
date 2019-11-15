@@ -3,6 +3,8 @@ sed -i -e "s|database_name_here|$DB_NAME|g" /var/www/html/wordpress/wp-config.ph
 && sed -i -e "s|password_here|$DB_PASSWORD|g" /var/www/html/wordpress/wp-config.php \
 && sed -i -e "s|localhost|$DB_HOST|g" /var/www/html/wordpress/wp-config.php 
 
+echo "Listen 8080" > /etc/apache2/ports.conf
+
 apache2-foreground
 
 
