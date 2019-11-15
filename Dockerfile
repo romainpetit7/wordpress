@@ -27,6 +27,9 @@ ADD wordpress.conf /etc/apache2/sites-available/
 #Ajout de la librairie mysqli pour PHP
 RUN docker-php-ext-install mysqli
 
+RUN echo "Listen 8080" > /etc/apache2/ports.conf
+
+
 #Ajout du fichier de conf wp-config.php
 ADD wp-config.php /var/www/html/wordpress/ 
 ADD modifenv.sh /var/www/html/script/
