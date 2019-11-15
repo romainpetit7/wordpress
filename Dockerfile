@@ -40,6 +40,7 @@ RUN chmod +x /var/www/html/script/modifenv.sh
 #Application du fichier de conf à Apache et reboot du service pour appliquer la modif
 RUN a2ensite wordpress.conf && a2enmod rewrite && service apache2 restart
 
+EXPOSE 8080
 
 USER www-data
 
